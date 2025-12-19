@@ -19,4 +19,22 @@ def get_count_characters(file):
                 elif char[j] in dic: #If the character was already read incremente the counter
                     dic[char[j]] += 1
         return dic
-            
+
+def sort_on(items): #Function used to sort the list of dictionaries
+    return items["num"]
+
+def print_report(dics):
+    new_list = []
+    for dic in dics:
+        new_test_dic = {} #Solution: Create a new dictionary inside the loop. This ensures that every time the loop runs, i create a brand-new object in memory.
+        new_test_dic["char"] = dic #Creation of the Key and value 
+        new_test_dic["num"] = dics[dic]
+        new_list.append(new_test_dic)
+
+    new_list.sort(reverse = True, key=sort_on) #Sorting the list from greatest to the least by the count
+
+    for i in range(0, len(new_list)):
+        if new_list[i]["char"].isalpha() == False: #I don't want to print the no-alphabetic characters
+            continue
+        else:
+            print(f"{new_list[i]["char"]}: {new_list[i]["num"]}")
