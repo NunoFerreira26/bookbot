@@ -20,9 +20,19 @@ def get_count_characters(file):
                     dic[char[j]] += 1
         return dic
 
-def sort_on(items): #Function used to sort the list of dictionaries
-    return items["num"]
+def sort_on(item: tuple[str, int]) -> int: #Function used to sort the list of dictionaries
+    return item [1]
 
+def chars_dict_to_sorted_list(chars_dict: dict[str, int]) -> list[tuple[str, int]]:
+    new_list = []
+
+    for character in chars_dict:
+        count = chars_dict[character]
+        new_list.append((character, count))
+    
+    sorted_list = sorted(new_list, reverse=True, key=sort_on)
+    return sorted_list
+"""
 def print_report(dics):
     new_list = []
     for dic in dics:
@@ -38,3 +48,4 @@ def print_report(dics):
             continue
         else:
             print(f"{new_list[i]["char"]}: {new_list[i]["num"]}")
+"""

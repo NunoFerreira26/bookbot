@@ -1,4 +1,4 @@
-from stats import get_num_words, get_count_characters, print_report
+from stats import get_num_words, get_count_characters, chars_dict_to_sorted_list
 import sys
 
 def main():
@@ -10,7 +10,8 @@ def main():
         print(get_num_words(sys.argv[1])) #We call the second entry in sys.argv, after the terminal command
         print("----- Character Count -----")
         result = get_count_characters(sys.argv[1])
-        print_report(result)
+        #print_report(result)
+        print(chars_dict_to_sorted_list(result))
         print("============ END ============")
 
 main()
